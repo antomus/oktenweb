@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floats</title>
+    <style>
+      html,body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      *, *::before, *::after {
+        box-sizing: inherit;
+      }
+      header, footer {
+        min-height: 150px;
+      }
+      .wrapper {
+        margin: 10px 0;
+        height: 680px;
+      }
+      .clear{
+        clear: both;
+      }
+      section {
+        min-height: 680px;
+        width: 70%;
+        float: right;
+      }
+      header {
+        background-color: aquamarine;
+      }
+      #menu {
+        background-color: blueviolet;
+        float: left;
+        width: 29%;
+        height: 690px;
+      }
+      .post {
+        background-color: cornflowerblue;
+        min-width: 600px;
+        height: 340px;
+        margin-bottom: 10px;
+      }
+      footer {
+        background-color: darkkhaki;
+      }
+    </style>
+</head>
+<body>
+    <header>
+      header
+    </header>
+    <div class="wrapper">
+      <aside id='menu'>
+        menu
+      </aside>
+      <section>
+        <div class="post">
+          post
+        </div>
+        <div class="post">
+          post
+        </div>
+      </section>
+    </div>
+    <div class="clear"></div>
+    <footer>
+      footer
+    </footer>
+</body>
+</html>
