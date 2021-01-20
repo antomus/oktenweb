@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flexbox practice</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #888;
+    }
+
+    #wrapper {
+      background: red;
+      min-height: 800px;
+      padding: 20px 10px 10px 10px;
+      /* box-sizing: border-box; */
+    }
+
+    #site-footer {
+      background-color: #a8a8a8
+    }
+
+    #site-header {
+      background-color: #bebebe;
+      min-height: 200px;
+      border: 1px solid black;
+    }
+
+    #site-header nav {
+      min-height: 80px;
+      border: 1px solid black;
+    }
+
+    section {
+      min-height: 600px;
+      background-color: #bebebe;
+      border: 1px solid black;
+    }
+
+    #site-nav {
+      background-color: silver;
+      border: 1px solid black;
+    }
+
+    .light-gray {
+      background-color: lightgray;
+    }
+
+    #wrapper header, footer, p {
+      min-height: 80px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <header id="site-header">
+      <nav></nav>
+    </header>
+    <section>
+      <header></header>
+      <nav></nav>
+      <footer></footer>
+    </section>
+    <section>
+      <header></header>
+      <article>
+        <header></header>
+        <p></p>
+        <p></p>
+        <footer></footer>
+      </article>
+      <article>
+        <header></header>
+        <p></p>
+        <aside></aside>
+        <footer></footer>
+      </article>
+    </section>
+    <footer id="site-footer"></footer>
+  </div>
+</body>
+</html>
