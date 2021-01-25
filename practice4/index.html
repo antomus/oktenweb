@@ -13,79 +13,147 @@
       padding: 0;
     }
 
-    body {
-      background-color: #888;
+    #wrapper {
+      text-align: center;
+      background-color: #9F9F9F;
+      min-height: 100%;
+      padding: 20px 10px 10px 10px;
+    }
+  
+    header, section {
+      background-color: #dddddd;
     }
 
-    #wrapper {
-      background: red;
-      min-height: 800px;
-      padding: 20px 10px 10px 10px;
-      /* box-sizing: border-box; */
+    section header, section footer, section nav, header nav {
+      background-color: #E8E8E8;
+    }
+
+    section article > * {
+      background-color: #FFFFFF;
     }
 
     #site-footer {
-      background-color: #a8a8a8
+      background-color: #B8B8B8;
+      height: 60px;
+      margin-top: 10px;
+    }
+
+    header, footer, p, aside, nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     #site-header {
-      background-color: #bebebe;
-      min-height: 200px;
-      border: 1px solid black;
+      display: flex;
+      height: 100px;
+      padding: 10px;
     }
 
     #site-header nav {
-      min-height: 80px;
-      border: 1px solid black;
+      height: 50px;
+      width: 100%;
+      align-self: flex-end;
     }
 
-    section {
-      min-height: 600px;
-      background-color: #bebebe;
-      border: 1px solid black;
+    #section-wrapper {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      height: 800px;
     }
 
     #site-nav {
       background-color: silver;
-      border: 1px solid black;
     }
 
-    .light-gray {
-      background-color: lightgray;
+    section header, section footer {
+      height: 50px;
     }
 
-    #wrapper header, footer, p {
-      min-height: 80px;
-      border: 1px solid black;
+    .left-section {
+      padding: 10px;
+      width: 30%;
+    }
+  
+    .right-section {
+      width: 69%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .left-section nav {
+      height: 84%;
+      margin: 10px 0;
+    }
+
+    article {
+      border: 1px solid grey;
+      min-height: 258px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    article p {
+      height: 50px;
+    }
+
+    .aside-container {
+      display: flex;
+      justify-content: space-between;
+      height: 240px;
+      background-color: #dddddd;
+    }
+
+    .aside-container p {
+      width: 70%;
+      height: 100%;
+      background-color: #FFFFFF;
+    }
+
+    .aside-container aside {
+      width: 29%;
+      background-color: #FFFFFF;
     }
   </style>
 </head>
 <body>
   <div id="wrapper">
     <header id="site-header">
-      <nav></nav>
+      <nav>navigation</nav>
     </header>
-    <section>
-      <header></header>
-      <nav></nav>
-      <footer></footer>
-    </section>
-    <section>
-      <header></header>
-      <article>
-        <header></header>
-        <p></p>
-        <p></p>
-        <footer></footer>
-      </article>
-      <article>
-        <header></header>
-        <p></p>
-        <aside></aside>
-        <footer></footer>
-      </article>
-    </section>
-    <footer id="site-footer"></footer>
+    <div id='section-wrapper'>
+      <section class="left-section">
+        <header>header</header>
+        <nav>nav</nav>
+        <footer>footer</footer>
+      </section>
+      <section class="right-section">
+        <header>header</header>
+        <article>
+          <header>header</header>
+          <p>p</p>
+          <p>p</p>
+          <footer>footer</footer>
+        </article>
+        <article>
+          <header>header</header>
+          <div class="aside-container">
+            <p>p</p>
+            <aside>aside</aside>
+          </div>
+          <footer>footer</footer>
+        </article>
+        <footer>footer</footer>
+      </section>
+    </div>
+    <footer id="site-footer">footer</footer>
   </div>
 </body>
 </html>
