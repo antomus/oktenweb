@@ -49,12 +49,16 @@ html, body {
 }
 
 .social-buttons {
-  min-width: 110px;
+  min-width: 200px;
   height: 66px;
   margin-right: 205px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.social-buttons_youtube_icon {
+  height: 26px;
 }
 
 .main-content {
@@ -65,7 +69,7 @@ html, body {
   height: 90px;
   background-color: #16595A;
   justify-self: flex-end;
-  width: 1445px;
+  width: 576px;
   margin: 0 auto;
 }
 
@@ -101,7 +105,7 @@ html, body {
 .places-deck {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 45px;
+  padding: 0 62px 45px 62px;
 }
 
 .place {
@@ -133,4 +137,125 @@ html, body {
 .grey-text {
   color: #8E8E8E;
   margin-left: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 576px) { 
+  .wrapper {
+    display: flex;
+    width: 576px;
+    min-height: 100vh;
+    margin: auto;
+    flex-direction: column;
+  }
+  
+  .main-header {
+    height: 83px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .main-navigation {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    height: 147px;
+    font-size: 26px;
+  }
+  
+  .social-buttons {
+    min-width: 320px;
+    height: 42px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .main-content {
+    flex: 1;
+  }
+  
+  .main-footer {
+    height: 68px;
+    background-color: #16595A;
+    justify-self: flex-end;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .carousel .carousel-item {
+    height: 670px;
+  }
+  
+  .carousel-item img {
+      position: absolute;
+      object-fit:cover;
+      top: 0;
+      left: 0;
+      min-height: 670px;
+  }
+  
+  .most-popular {
+    padding: 40px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .most-popular h3 {
+    font-family: Playfair Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 48px;
+    letter-spacing: 0.03em;
+    color: #000000;
+  }
+  
+  .places-deck {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 62px 45px 62px;
+  }
+  
+  .place {
+    width: 342px;
+  }
+  
+  .place-title {
+    font-family: Playfair Display;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 21px;
+    line-height: 28px;
+    letter-spacing: 0.05em;
+    color: #000000;
+    margin: 16px 0 26px 0;
+  }
+  
+  .place-text {
+    padding-left: 0;
+    border-left: none;
+    padding-bottom: 23px;
+    border-bottom: 2px solid #ED8651;
+    width: 295px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  
+  .grey-text {
+    color: #8E8E8E;
+    margin-left: 1rem;
+  }
+
 }
