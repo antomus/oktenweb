@@ -95,28 +95,52 @@ for (let index = 0; index < 100; index++) {
 }
 // - Відтворити роботу годинника, відрахувавши 2 хвилини (2 цикли! 1й - хвилини, 2й - секунди)
 (function(){
-    let minutes = 0;
-    let secondsStr = '';
-    for (let second = 1; second <= 120; second++) {
-        if(second < 10) {
-            secondsStr = `0${second}`;
-        }
-        else if(second >= 10 && second < 60) {
-            secondsStr = second;
-        }
-        else if(second > 60) {
-            minutes = 1;
-            if(second < 70) {
-                secondsStr = `0${second - 60}`;
-            } else {
-                secondsStr = second - 60;
+    var minutes = 0;
+    var secondsStr = '';
+    for(;minutes < 3; minutes++) {
+        for (let second = 0; second < 60; second++) {
+
+            if(second < 10) {
+                secondsStr = `0${second}`;
             }
-        } else if(second === 120) {
-            minutes = 2;
-            secondsStr = '00';
+            else if(second >= 10 && second < 60) {
+                secondsStr = second;
+            }
+            console.log(`0${minutes}: ${secondsStr}`)
+             if(minutes === 2) {
+                break;
+            }
         }
-        console.log(`0${minutes}: ${secondsStr}`)
-        
     }
 })();
 // - Відтворити роботу годинника, відрахувавши  2 години  (3 цикли! 1й - години, 2й - хвилини, 3й - секунди)
+(function(){
+    var hours = 0;
+    var minutesStr = '';
+    var secondsStr = '';
+    for(;hours < 3; hours++) {
+      for(let minutes = 0;minutes < 60; minutes++) {
+            if(minutes < 10) {
+                minutesStr = `0${minutes}`;
+            }
+            else if(minutes >= 10 && minutes < 60) {
+                minutesStr = minutes;
+            }
+
+        for (let second = 0; second < 60; second++) {
+
+            if(second < 10) {
+                secondsStr = `0${second}`;
+            }
+            else if(second >= 10 && second < 60) {
+                secondsStr = second;
+            }
+            console.log(`0${hours}: ${minutesStr}: ${secondsStr}`)
+            if(hours === 2) {
+                return;
+            }
+        }
+    }
+    }
+
+})();
