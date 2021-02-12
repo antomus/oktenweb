@@ -101,7 +101,7 @@ for (let index = 0; index < 100; index++) {
         if(second < 10) {
             secondsStr = `0${second}`;
         }
-        else if(second >= 10) {
+        else if(second >= 10 && second < 60) {
             secondsStr = second;
         }
         else if(second > 60) {
