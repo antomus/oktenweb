@@ -72,3 +72,58 @@ function isAnagram(str1,str2) {
   let str2Chars = str2.split('');
   return str1Chars.sort().join() === str2Chars.sort().join();
 }
+
+// 1) Создайте функцию rgb(), которая будет принимать три числовых аргумента и возвращать строку вида «rgb(23,100,134)».
+// Если аргументы не заданы, считать их равными нулю.
+function rgb(r,g,b) {
+  r = r === undefined ? 0 : r;
+  g = g === undefined ? 0 : g;
+  b = b === undefined ? 0 : b;
+  return `rgb(${r},${g},${b})`;
+}
+
+// 2) создать функцию которая будет принимать два массива:
+// - с ключами
+// - с значениями
+// и будет возвращать объект полученный в результате склеивания этих двух массивов
+// пример:
+// zip(['name', 'age', 'status'], ['Kira', 12, false])  —>  { name: 'Kira', age: 12, status: false }
+function zip(keys, values) {
+  let result = {};
+  for (let index = 0; index < keys.length; index++) {
+    const key = keys[index];
+    result[key] = values[index];
+  }
+  return result;
+}
+
+// 3) создать функцию которая будет принимать любое количество чисел,
+// и будет возвращать массив без дубликатов uniq(1, 2, 2, 3, 4, 2, 4, 5) —> [1,2,3,4,5]
+function uniq(...numbers) {
+  let result = [];
+  for(let number of numbers) {
+    if(!result.includes(number)) {
+      result.push(number);
+    }
+  }
+  return result;
+} 
+
+
+// 4) создать функцию которая принимает число (высоту) и делает половину пирамидки (как в игре марио)
+
+function drawPyramid(height) {
+  if(!Number.isInteger(height)){
+    throw Error('heigh should be an integer');
+  }
+  for(let i = 1; i <= height; i++) {
+    let array = new Array(height);
+    for(j = 0; j < i; j++) {
+      array.push('*');
+    }
+    for(k = 0; k < (height - i); k++) {
+      array[k] = ' ';
+    }
+    console.log(array.join(''));
+  }
+}
