@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice5</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        #task-table {
+            width: 500px;
+            box-sizing: border-box;
+            border-collapse: collapse;
+        }
+        #task-table td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="menu-task">
+        <ul id="menu" class="hide">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+        <button id="menu-toggle">Menu</button>
+    </div>
+    <br>
+    <div id="form-task">
+        <form action="javascript:void(0);">
+            <fieldset>
+                <input type="text" name="first_name" id="first_name">
+                <input type="text" name="last_name" id="last_name">
+            </fieldset>
+        </form>
+        <form action="javascript:void(0);">
+            <fieldset>
+                <input type="text" name="age" id="age">
+                <input type="text" name="wight" id="weight">
+            </fieldset>
+        </form>
+        <button id='get-form-data'>Get Data</button>
+        <button id='clear-form-data'>Clear Data</button>
+    </div>
+    <br>
+    <br>
+    <div id="table-task">
+        <form action="javascript:void(0);">
+            <fieldset>
+                <label for="row_number">Row number</label>
+                <input type="number" name="row_number" id="row_number" min="1">
+                <label for="cell_number">Cell number</label>
+                <input type="number" name="cell_number" id="cell_number" min="1">
+                <label for="cell_text">Cell text</label>
+                <input type="text" name="cell_text" id="cell_text">
+            </fieldset>
+        </form>
+
+        <button id='generate-table'>Generate table</button>
+        <button id='clear-table'>Destroy table</button>
+        <br>
+        <br>
+        <table id="task-table">
+        </table>
+    </div>
+
+<script>
+    function menuHandler(event) {
+        let menu = document.getElementById("menu");
+        menu.classList.toggle("hide");
+    }
+    function getFormData(event) {
+        const forms = Array.from(document.querySelectorAll('#form-task form'));
+        let data = forms.map((form) => { 
+            return Array.from(form.elements).map((el) => el.value) .join(' ')
+        }).join(' ')
+        console.log(data);
+    }
+    function clearFormData(event) {
+        const forms = Array.from(document.querySelectorAll('#form-task form'));
+        forms.forEach(form => {
+            form.reset();
+        }); 
+    }
+    function generateTable(event) {
+        let rowNumber = parseInt(document.querySelector('#row_number').value);
+        let cellNumber = parseInt(document.querySelector('#cell_number').value);
+        let cellText = document.querySelector('#cell_text').value;
+        let rowCounter = 0;
+        let table = document.querySelector('#task-table');
+
+        while(rowCounter < rowNumber) {
+            let row = table.insertRow(rowCounter);
+            let cellCounter = 0;
+            while(cellCounter < cellNumber) {
+               let cell = row.insertCell(cellCounter);
+               cell.innerHTML = cellText;
+               cellCounter += 1;
+            }
+            rowCounter += 1;
+        }
+    }
+    function destroyTable(event) {
+        let table = document.getElementById('task-table');
+        table.innerHTML = "";
+    }
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelector('#menu-toggle').addEventListener('click', (event) => {
+            menuHandler(event);
+        });
+        document.querySelector('#get-form-data').addEventListener('click', (event) => {
+            getFormData(event);
+        });
+        document.querySelector('#clear-form-data').addEventListener('click', (event) => {
+            clearFormData(event);
+        });
+        document.querySelector('#generate-table').addEventListener('click', (event) => {
+            generateTable(event);
+        });
+        document.querySelector('#clear-table').addEventListener('click', (event) => {
+            destroyTable(event);
+        });
+
+    });
+</script>
+</body>
+</html>

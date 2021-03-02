@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h3 {
+            text-decoration: underline;
+        }
+        #wrapper {
+            width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: space-around;
+        }
+        #text {
+            width: 300px;
+            height: 300px;
+            background-color: cadetblue;
+        }
+
+        .comment-title {
+            font-weight: bold;
+        }
+        .comment {
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+        .comment-wrap-text {
+            max-height: 19px;
+            overflow: hidden;
+        }
+        .hide {
+            display: none;
+        }
+        .show-inline {
+            display: inline;
+        }
+        .show-block {
+            display: block;
+        }
+        .mb-20 {
+            margin-bottom: 20px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="text-task" class="mb-20">
+            <h3>Text task:</h3>
+            <div id="text" class="mb-20">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque corporis itaque autem ipsa saepe.
+            </div>
+            <button id="hide-text">Hide/Show</button>
+        </div>
+
+        <div id="button-task" class="mb-20">
+            <h3>Button task:</h3>
+            <button id='hide-myself'>Hide itself</button>
+        </div>
+
+        <div id="human-age" class="mb-20">
+            <h3>Human age:</h3>
+            <input type="number" name="age" id="age">
+            <button id="validate-age">Validate</button>
+        </div>
+        <div id="comments" class="mb-20">
+            <h3>Comments:</h3>
+            <div class="comment">
+                <div class="comment-title">Lorem ipsum dolor sit, amet consectetur adipisicing elit. </div>
+                <div class="comment-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam amet recusandae doloremque ratione quos ducimus facere iste explicabo ipsum veritatis nisi quod quidem, voluptate aliquid! Error assumenda aperiam architecto perspiciatis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo veritatis ratione iure quia itaque quod voluptatum asperiores. Quisquam, fugit ratione, necessitatibus corporis, sed amet minus aspernatur modi atque perferendis harum!</div>
+                <button class="comment-more hide">More</button>
+                <button class="comment-less">Less</button>
+            </div>
+            <div class="comment">
+                <div class="comment-title">Ipsum</div>
+                <div class="comment-body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate praesentium cumque vel, at ipsum corrupti. Pariatur nam qui adipisci ratione id repudiandae harum alias, praesentium, tempore, repellat laboriosam perspiciatis architecto! Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, consectetur ex! Incidunt excepturi voluptates facilis porro, vero dignissimos, ut voluptatem nisi exercitationem illo tempore. Nesciunt at quam iusto eaque vitae!</div>
+                <button class="comment-more hide">More</button>
+                <button class="comment-less">Less</button>
+            </div>
+            <div class="comment">
+                <div class="comment-title">Lorem</div>
+                <div class="comment-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex temporibus cumque et atque commodi amet mollitia sunt veniam accusamus vel, corporis similique perferendis ipsum tenetur animi iusto esse placeat sapiente? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi sunt culpa nobis tempore aut velit quia beatae fugit neque, similique minima ut error doloremque repellendus reprehenderit accusamus accusantium, eum laborum.</div>
+                <button class="comment-more hide">More</button>
+                <button class="comment-less">Less</button>
+            </div>
+
+        </div>
+        <div id="censor-array" class="mb-20">
+            <h3>Censor task:</h3>
+            <input type="text" name="word" id="censor-word">
+            <button id='censor-validate'>Validate</button>
+        </div>
+
+    </div>
+
+    <script>
+        class HomeWork {
+            static hide_class = 'hide';
+            static show_inline = 'show-inline';
+            static show_block = 'show-block';
+            static wrap_text_class = 'comment-wrap-text';
+            
+            constructor() {
+                this.hideText = document.querySelector('#hide-text');
+                this.hideMySelf = document.querySelector('#hide-myself');
+                this.validateAge = document.querySelector('#validate-age');
+                this.comments = document.querySelectorAll('.comment');
+                this.censorValidate = document.querySelector('#censor-validate');
+  
+            }
+            #toggleText(event) {
+                const textDiv = document.querySelector('#text');
+                const divVisible = textDiv.offsetParent !== null;
+                textDiv.style.display = divVisible ? 'none' : 'block';
+            }
+            #hideMySelfHandler(event) {
+                this.style.display = 'none';
+            }
+            #ageHandler(event) {
+                const ageInput = document.querySelector('#age');
+                if(ageInput && ageInput.value < 18) {
+                    alert('Your age is under 18!');
+                }
+            }
+            #moreHandler(event) {
+                this.classList.add(HomeWork.hide_class);
+                this.classList.remove(HomeWork.show_inline);
+                let lessButton  = this.parentNode.querySelector('.comment-less');
+                let commentBody = this.parentNode.querySelector('.comment-body');
+                lessButton.classList.add(HomeWork.show_inline);
+                commentBody.classList.remove(HomeWork.wrap_text_class);
+            }
+            #lessHandler(event) {
+                this.classList.add(HomeWork.hide_class);
+                this.classList.remove(HomeWork.show_inline);
+                let moreButton  = this.parentNode.querySelector('.comment-more');
+                let commentBody = this.parentNode.querySelector('.comment-body');
+                moreButton.classList.add(HomeWork.show_inline);
+                commentBody.classList.add(HomeWork.wrap_text_class);
+            }
+            #censorHandler(event) {
+                const censorWord = document.querySelector('#censor-word');
+                const badWords = ['fuck','bitch'];
+                const isBadWord = badWords.some(function(arrVal) {
+                    return censorWord.value.toLowerCase() === arrVal;
+                });
+                if(isBadWord) {
+                    alert("Please don't use bad words!");
+                }
+            }
+            initHandlers() {
+                this.hideText.addEventListener('click', this.#toggleText);
+                this.hideMySelf.addEventListener('click', this.#hideMySelfHandler);
+                this.validateAge.addEventListener('click', this.#ageHandler);
+                Array.from(this.comments).forEach((el) => {
+                    el.querySelector('.comment-more').addEventListener('click', this.#moreHandler);
+                    el.querySelector('.comment-less').addEventListener('click', this.#lessHandler);
+                });
+                this.censorValidate.addEventListener('click', this.#censorHandler);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let homeWork = new HomeWork();
+            homeWork.initHandlers();
+        });
+    </script>
+</body>
+
+</html>
